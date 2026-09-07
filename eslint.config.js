@@ -102,6 +102,15 @@ export default tseslint.config(
   },
 
   {
+    // Route definition files export route arrays, not components — that is
+    // their job, so the fast-refresh heuristic does not apply.
+    files: ['**/routes.tsx', 'src/app/**', 'src/test/**'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
+
+  {
     files: ['**/*.test.{ts,tsx}', 'src/test/**'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
