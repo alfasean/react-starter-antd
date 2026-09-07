@@ -16,6 +16,13 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
+    // Tests never hit a real backend, and .env.development is not loaded in
+    // test mode. Pin the values the config layer reads at import time.
+    env: {
+      VITE_API_MOCK: 'true',
+      VITE_APP_NAME: 'React Starter',
+      VITE_APP_API_URL: '',
+    },
     setupFiles: ['./src/test/setup.ts'],
     css: false,
     restoreMocks: true,

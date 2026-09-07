@@ -1,0 +1,4 @@
+# Prettier is configured with endOfLine: lf; keep the working tree consistent
+# so format:check does not fight git's autocrlf on Windows.
+* text=auto eol=lf
+pnpm-lock.yaml -diff
