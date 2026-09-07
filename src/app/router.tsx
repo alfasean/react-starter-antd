@@ -6,6 +6,7 @@ import { CatchAllNavigate } from '@refinedev/react-router';
 import { ContentLayout, ErrorBoundary, ErrorPage } from '@/shared/components';
 import { authRoutes } from '@/features/auth';
 import { dashboardRoutes } from '@/features/dashboard';
+import { vendorRoutes } from '@/features/vendor';
 
 /**
  * Routes behind the authentication gate, rendered inside the app shell.
@@ -24,7 +25,7 @@ const protectedRoutes: RouteObject[] = [
         </ContentLayout>
       </Authenticated>
     ),
-    children: [...dashboardRoutes],
+    children: [...dashboardRoutes, ...vendorRoutes],
   },
 ];
 

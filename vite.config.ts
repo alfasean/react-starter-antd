@@ -26,5 +26,13 @@ export default defineConfig({
     setupFiles: ['./src/test/setup.ts'],
     css: false,
     restoreMocks: true,
+    // Refine's packages resolve their own copy of react-router, which would
+    // give the test a second React context and break useLocation(). Inlining
+    // both forces a single instance through Vite's module graph.
+    server: {
+      deps: {
+        inline: [/react-router/, /@refinedev\//],
+      },
+    },
   },
 });

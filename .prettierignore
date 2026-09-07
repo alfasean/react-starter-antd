@@ -5,3 +5,5 @@ pnpm-lock.yaml
 
 # Planning artifacts — kept verbatim as written.
 docs/superpowers
+
+.claude/settings.local.json
